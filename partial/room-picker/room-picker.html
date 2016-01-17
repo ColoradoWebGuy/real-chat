@@ -1,8 +1,8 @@
 <div class="col-md-12" ng-controller="RoomPickerCtrl">
   <h2>Rooms</h2>
   <ul>
-    <li>Room #1</li>
-    <li>Room #2</li>
-    <li>Room #3</li>
+    <li ng-repeat="room in rooms">
+      {{ room.name }}
+    </li>
   </ul>
 </div>

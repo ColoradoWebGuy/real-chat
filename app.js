@@ -2,12 +2,13 @@ angular.module('realChat', ['ui.bootstrap','ui.utils','ui.router','firebase']);
 
 angular.module('realChat').config(function($stateProvider, $urlRouterProvider) {
 
-    /* Add New States Above */
     $stateProvider.state('landing', {
         url: '/',
         templateUrl: 'partial/landing/landing.html'
     });
 
+    /* Add New States Above */
+    $urlRouterProvider.otherwise('/');
 });
 
 angular.module('realChat').run(function($rootScope) {

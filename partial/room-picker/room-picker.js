@@ -1,4 +1,9 @@
-angular.module('realChat').controller('RoomPickerCtrl',function($scope){
+angular
+  .module('realChat')
+  .controller('RoomPickerCtrl', ['$scope', 'Room',
+    function($scope, Room) {
 
+      $scope.rooms = Room;
 
-});
+  }
+]);

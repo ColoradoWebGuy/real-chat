@@ -3,7 +3,7 @@ angular
   .controller('RoomPickerCtrl', ['$scope', 'Room',
     function($scope, Room) {
 
-      $scope.rooms = Room.all;
+      $scope.rooms = Room.get();
 
   }
 ]);

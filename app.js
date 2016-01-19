@@ -1,4 +1,4 @@
-angular.module('realChat', ['ui.bootstrap','ui.utils','ui.router','firebase']);
+angular.module('realChat', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','firebase']);
 
 angular.module('realChat').config(function($stateProvider, $urlRouterProvider) {
 

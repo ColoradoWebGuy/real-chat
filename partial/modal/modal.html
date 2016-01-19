@@ -1,0 +1,16 @@
+<div ng-controller="ModalCtrl">
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Add new Room</h3>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" ng-model="newRoom.name" />
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="add()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    <button type="button" class="btn btn-default" ng-click="open()">Add new Room!</button>
+</div>

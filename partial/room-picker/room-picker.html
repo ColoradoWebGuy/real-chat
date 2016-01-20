@@ -2,7 +2,7 @@
   <div ng-include="'/partial/modal/modal.html'"></div>
   <ul class="sidebar-nav">
     <li ng-repeat="room in rooms">
-      {{ room.name }}
+      <a ng-click="setRoomID(room.$id)">{{ room.name }}</a>
     </li>
   </ul>
 </div>

@@ -16,6 +16,12 @@ angular
 				},
 				get: function get() {
 					return rooms;
-				}
+				},
+        messages: function messages(roomId) {
+          if (roomId) {
+            var roomMessages = $firebaseArray(firebaseRef.child('messages').orderByChild('roomId').equalTo(roomId));
+            return roomMessages;
+          }
+        }
 			};
 }]);

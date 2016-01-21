@@ -7,6 +7,11 @@ angular.module('realChat').config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'partial/landing/landing.html'
     });
 
+    $stateProvider.state('landing.room', {
+        url: 'room/:id/:room',
+        templateUrl: 'partial/landing/landing.html'
+    });
+
     /* Add New States Above */
     $urlRouterProvider.otherwise('/');
 });

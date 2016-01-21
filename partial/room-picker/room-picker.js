@@ -5,11 +5,9 @@ angular
 
       $scope.rooms = Room.get();
 
-      $scope.setRoomID = function setRoomID(roomID) {
-        // assign new room Id
-        $scope.$parent.activeRoom = roomID;
-        // update messages
-        $scope.$parent.setRoomMessages(roomID);
-      }
+      // $scope.setNewRoom = function setNewRoom(id) {
+      //   $scope.$parent.activeRoom = id;
+      //   $scope.$parent.updateMessages(id);
+      // }
   }
 ]);

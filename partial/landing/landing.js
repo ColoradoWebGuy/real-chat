@@ -1,15 +1,21 @@
 angular
   .module('realChat')
-  .controller('LandingCtrl',['$scope', 'Room',
-    function($scope, Room){
+  .controller('LandingCtrl', ['$rootScope', '$scope', 'Room', '$stateParams',
+    function($rootScope, $scope, Room, $stateParams){
 
-      $scope.activeRoom = ''; // initial roomID
+    //$scope.activeRoom = '-K8GklPoB7f9mNWCO7DJ';
+    // $scope.activeRoom = ''; // initial room id~
+    //
+    // $scope.updateMessages = function updateMessages(id) {
+    //   $scope.activeMessages = Room.messages(id);
+    // }
+    // $scope.updateMessages($scope.activeRoom);
+    $rootScope.$on('$stateChangeSuccess', function() {
+      $scope.activeMessages = Room.messages($stateParams.id);
+      $scope.roomName = $stateParams.room;
+    })
 
-      $scope.setRoomMessages = function setRoomMessages(roomID) {
-        console.log("Messages Set: "+ roomID)
-        $scope.activeMessages = Room.messages(roomID);
-      }
+    console.log($stateParams.id);
 
-      // set room messages
-      $scope.setRoomMessages($scope.activeRoom);
+
 }]);

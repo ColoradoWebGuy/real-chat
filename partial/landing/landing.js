@@ -13,7 +13,7 @@ angular
     $rootScope.$on('$stateChangeSuccess', function() {
       $scope.activeMessages = Room.messages($stateParams.id);
       $scope.roomName = $stateParams.room;
-    })
+    });
 
     console.log($stateParams.id);
 

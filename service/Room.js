@@ -1,5 +1,5 @@
 angular
-	  	.module('realChat')
+	  .module('realChat')
 		.factory('Room', ['$firebaseArray', function Room($firebaseArray) {
 	 		var firebaseRef = new Firebase('https://radiant-heat-2803.firebaseio.com');
 			var rooms = $firebaseArray(firebaseRef.child('rooms'));
@@ -18,7 +18,6 @@ angular
 					return rooms;
 				},
         messages: function messages(roomId) {
-          debugger;
           var roomMessages = $firebaseArray(firebaseRef.child('messages').orderByChild('roomId').equalTo(roomId));
           return roomMessages;
         }

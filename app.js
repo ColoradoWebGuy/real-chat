@@ -1,4 +1,31 @@
-angular.module('realChat', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','firebase']);
+angular.module('realChat', [
+    'ui.bootstrap',
+    'ui.utils',
+    'ui.router',
+    'ngAnimate',
+    'firebase',
+    'ngCookies'
+  ])
+  .run(['$cookies', 'modalService', function($cookies, modalService) {
+
+    if (!$cookies.blocChatCurrentUser || $cookies.blocChatCurrentUser === '' ) {
+        // Do something to allow users to set their username
+        var modalOptions = {
+            actionButtonText: 'Submit',
+            headerText: 'Set your username',
+            smallText: 'This name will appear when you send messages.',
+            textInput: true,
+            textRequired: true,
+            controller: 'ModalUsernameCtrl'
+        };
+
+        modalService.result({}, modalOptions).then(function (result) {
+            $cookies.blocChatCurrentUser = result;
+        });
+        
+    }
+
+  }]);
 
 angular.module('realChat').config(function($stateProvider, $urlRouterProvider) {
 

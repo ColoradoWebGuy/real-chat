@@ -17,7 +17,7 @@ angular
 
     return {
       showModal: function showModal(customModalDefaults, customModalOptions) {
-        if (!customModalDefaults) customModalDefaults = {};
+        customModalDefaults = customModalDefaults || {};
         customModalDefaults.backdrop = 'static';
         return this.show(customModalDefaults, customModalOptions);
       },
@@ -35,31 +35,16 @@ angular
           if (!tempModalDefaults.controller) {
               tempModalDefaults.controller = function ($scope, $modalInstance) {
                   $scope.modalOptions = tempModalOptions;
-                  $scope.modalOptions.ok = function (result) {
-                      $modalInstance.close(result);
-                  };
-                  $scope.modalOptions.close = function (result) {
-                      $modalInstance.dismiss('cancel');
+                  $scope.newUsername = {};
+
+                  $scope.modalOptions.ok = function ok() {
+                    console.log('Temp Defaults: '+ $scope.newUsername.name)
+                      $modalInstance.close($scope.newUsername.name);
                   };
               }
           }
 
           return $modal.open(tempModalDefaults).result;
-      },
-      get: function get() {
-        return rooms;
       }
     };
-});
-
-angular
-  .module('realChat')
-  .controller('ModalInstanceCtrl', function ModalInstanceCtrl($scope, $modalInstance) {
-
-  console.log('It\'s coming: '+newUsername.name);
-  $scope.newUsername = {};
-
-  $scope.add = function () {
-    $modalInstance.close($scope.newUsername.name);
-  };
 });

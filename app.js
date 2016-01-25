@@ -6,7 +6,8 @@ angular.module('realChat', [
     'firebase',
     'ngCookies'
   ])
-  .run(['$cookies', 'modalService', function($cookies, modalService) {
+  .run(['$cookies', 'modalService', '$controller', '$rootScope', '$modal',
+  function($cookies, modalService, $controller, $rootScope, $modal) {
 
     if (!$cookies.blocChatCurrentUser || $cookies.blocChatCurrentUser === '' ) {
         // Do something to allow users to set their username
@@ -15,15 +16,19 @@ angular.module('realChat', [
             headerText: 'Set your username',
             smallText: 'This name will appear when you send messages.',
             textInput: true,
-            textRequired: true,
-            controller: 'ModalUsernameCtrl'
+            textRequired: true
         };
 
-        modalService.result({}, modalOptions).then(function (result) {
-            $cookies.blocChatCurrentUser = result;
-        });
-        
-    }
+        var modalDefaults = {}
+
+        modalService.showModal(modalDefaults, modalOptions).then(
+          function (result) {
+              $cookies.blocChatCurrentUser = result;
+              console.log("made it into showModal:"+result);
+          }
+        );
+
+      }
 
   }]);
 

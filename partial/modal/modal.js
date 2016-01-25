@@ -28,7 +28,7 @@ angular
 
 angular
   .module('realChat')
-  .controller('ModalUsernameCtrl', function ModalUsernameCtrl($scope, $modalInstance) {
+  .controller('ModalInstanceCtrl', function ModalInstanceCtrl($scope, $modalInstance) {
 
   $scope.newRoom = {};
 

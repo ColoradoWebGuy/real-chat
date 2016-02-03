@@ -1,3 +1,4 @@
+/*global Firebase */
 angular
   .module('realChat')
   .factory('Message', ['$firebaseArray', '$stateParams', '$cookies',
@@ -23,5 +24,5 @@ angular
           username: $cookies.blocChatCurrentUser
         });
       }
-    }
+    };
 }]);

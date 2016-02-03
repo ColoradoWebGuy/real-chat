@@ -38,10 +38,10 @@ angular
                   $scope.newUsername = {};
 
                   $scope.modalOptions.ok = function ok() {
-                    console.log('Temp Defaults: '+ $scope.newUsername.name)
-                      $modalInstance.close($scope.newUsername.name);
+                    console.log('Temp Defaults: '+ $scope.newUsername.name);
+                    $modalInstance.close($scope.newUsername.name);
                   };
-              }
+              };
           }
 
           return $modal.open(tempModalDefaults).result;

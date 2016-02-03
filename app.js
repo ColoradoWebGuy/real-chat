@@ -19,7 +19,7 @@ angular.module('realChat', [
             textRequired: true
         };
 
-        var modalDefaults = {}
+        var modalDefaults = {};
 
         modalService.showModal(modalDefaults, modalOptions).then(
           function (result) {

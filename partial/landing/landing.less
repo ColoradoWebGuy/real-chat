@@ -4,6 +4,8 @@
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    overflow-x: hidden;
+    height: 100%;
 
     .toggled {
       padding-left: 265px;
@@ -29,48 +31,45 @@
         }
     }
 
+    #roomTitle {
+      margin: 20px;
+    }
 
-    .toggled {
-      color: blue;
+    .message {
+      margin: 20px;
+    }
 
-      #sidebar-wrapper {
-        width: 250px;
-      }
-
-      #page-content-wrapper {
-        position: absolute;
-        margin-right: -250px;
-      }
+    #messageInput {
+      margin: 20px;
     }
 
     #page-content-wrapper {
       width: 100%;
-      position: absolute;
+      min-height: 100%;
+      /* equal to footer height */
+      margin-bottom: -80px;
+    }
+    #page-content-wrapper:after {
+      content: "";
+      display: block;
     }
 
+    .site-footer, #page-content-wrapper:after {
+      height: 80px;
+    }
+    .site-footer {
+      background: orange;
+    }
 
     @media(min-width:768px) {
-        padding-left: 265px;
-
-        .toggled {
-            padding-left: 15px;
-
-            #page-content-wrapper {
-              position: relative;
-              margin-right: 0;
-            }
-
-            #sidebar-wrapper {
-              width: 0;
-            }
-        }
+        padding-left: 250px;
 
         #sidebar-wrapper {
             width: 250px;
         }
 
         #page-content-wrapper {
-            padding: 20px;
+          padding: 0px;
             position: relative;
         }
     }
